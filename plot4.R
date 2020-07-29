@@ -5,7 +5,6 @@ class <- readRDS("Source_Classification_Code.rds")
 coal <- class[grepl("Coal", class$Short.Name), ]
 coaldata <- emission[emission$SCC %in% coal$SCC, ]
 
-## sum up emissions by year
 coalyear <- aggregate(coaldata$Emissions, 
                                  by=list(year=coaldata$year),sum)
 png(filename = "plot4.png")
