@@ -1,5 +1,6 @@
 emission<-readRDS(file.choose())
 ##choose rds file summarySCC_PM25.rds
+emissionbaltimore <- subset(emission, emission$fips=="24510")
 factoryear<-aggregate(emissionbaltimore$Emissions,list(year=emissionbaltimore$year),sum)
  png(filename = "plot2.png")
  plot(factoryear$year, factoryear$x, type = "l", 
